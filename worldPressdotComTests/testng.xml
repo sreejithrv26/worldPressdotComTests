@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WorldPressDotComTests" parallel="methods" thread-count="2">
+  <test name="LoginAndLogoutTests">
+     <classes>
+       <class name="com.pack.test.worldPressdotComTests">
+        <methods>
+        <include name="LoginTest_WorldPress" />
+        <include name="LogoutTest_WorldPress" />
+        </methods>
+       </class>
+    </classes>
+  </test>
+</suite>
