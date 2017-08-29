@@ -1,5 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="WorldPressDotComTests" parallel="methods" thread-count="2">
+<suite name="WorldPressDotComTests" parallel="methods" thread-count="10">
+<listeners>
+    <listener class-name="com.pack.util.CustomizedEmailableReport" />
+    <listener class-name="com.pack.util.testNGListener" />
+    
+    
+</listeners>
   <test name="LoginAndLogoutTests">
      <classes>
        <class name="com.pack.test.worldPressdotComTests">

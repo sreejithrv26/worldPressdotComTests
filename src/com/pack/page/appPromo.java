@@ -2,7 +2,7 @@
  * 
  */
 package com.pack.page;
-
+import com.pack.util.commonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -18,11 +18,11 @@ import junit.framework.Assert;
  */
 public class appPromo {
 	
-protected WebDriver driver;
+private WebDriver driver;
 	
 	@FindBy(how=How.XPATH,using="//*[@id='masterbar']/ul/li[2]/a")
 	@CacheLookup
-	WebElement SignInLink;
+	private WebElement SignInLink;
 	
 	public appPromo(WebDriver driver) {
 		this.driver=driver;
@@ -32,8 +32,10 @@ protected WebDriver driver;
 		
 	public WebDriver clickAppPromoSignInLink() throws InterruptedException{
 		Thread.sleep(10000);
+		commonMethods.highLightElement(driver, SignInLink);
 		SignInLink.click();
-		Reporter.log("My App Page SignIn link is clicked!", true);
+		commonMethods.logMessage(driver,"My App Page SignIn link is clicked!");
+		//Reporter.log("My App Page SignIn link is clicked!", true);
 		return driver;
 		
 	}

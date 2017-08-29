@@ -11,7 +11,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Reporter;
-
+import com.pack.util.commonMethods;
 import junit.framework.Assert;
 
 /**
@@ -20,11 +20,11 @@ import junit.framework.Assert;
  */
 public class myProfilePage {
 	
-protected WebDriver driver;
+private WebDriver driver;
 	
 	@FindBy(how=How.XPATH,using="//button[@class='button me-sidebar__signout-button is-compact']")
 	@CacheLookup
-	WebElement SignOut;
+	private WebElement SignOut;
 	
 	public myProfilePage(WebDriver driver) {
 		this.driver=driver;
@@ -35,8 +35,10 @@ protected WebDriver driver;
 	
 	public WebDriver clickMyAccountLogoutLink() throws InterruptedException{
 		Thread.sleep(10000);
+		commonMethods.highLightElement(driver, SignOut);
 		SignOut.click();
-		Reporter.log("MyAccount Logout link is clicked!", true);
+		commonMethods.logMessage(driver,"MyAccount Logout link is clicked!");
+		//Reporter.log("MyAccount Logout link is clicked!", true);
 		return driver;
 		
 	}

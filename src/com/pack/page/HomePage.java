@@ -25,15 +25,15 @@ import junit.framework.Assert;
 
 public class HomePage extends commonMethods{
 	
-	protected WebDriver driver;
+	private WebDriver driver;
 	
 	@FindBy(how=How.XPATH,using="//span[@class='masterbar__item-content']")
 	@CacheLookup
-	List<WebElement> allHeaderElements;
+	private List<WebElement> allHeaderElements;
 	
 	@FindBy(how=How.XPATH,using="//img[@class='gravatar']")
 	@CacheLookup
-	List<WebElement> myAccountLine;
+	private List<WebElement> myAccountLine;
 	
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
@@ -42,8 +42,10 @@ public class HomePage extends commonMethods{
 
 	public WebDriver clickMyAccountLink() throws InterruptedException{
 		Thread.sleep(10000);
+		commonMethods.highLightElement(driver, myAccountLine.get(0));
 		myAccountLine.get(0).click();
-		Reporter.log("MyAccount link is clicked!", true);
+		commonMethods.logMessage(driver,"MyAccount link is clicked!");
+		//Reporter.log("MyAccount link is clicked!", true);
 		return driver;
 		
 	}

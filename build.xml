@@ -42,7 +42,7 @@
 	
 	<target name="testng-execution" depends="compile">
 			<mkdir dir="${testng-report-dir}" />
-			<testng outputdir="${testng-report-dir}" classpathref="classpath" useDefaultListeners="true" haltOnFailure="true">
+			<testng outputdir="${testng-report-dir}" classpathref="classpath" useDefaultListeners="false" haltOnFailure="true">
 				<xmlfileset dir="${basedir}" includes="testng.xml" />
 			</testng>
 		</target>
